@@ -128,6 +128,10 @@ public class TweetFileToTreeMapReader {
       // Get the tweet, and substring it to the minimum length between its own length and the maximum allowable length
       // (140).
       String tweet = splitLine[1].substring(0, Math.min(Configuration.MAX_TWEET_LENGTH, splitLine[1].length()));
+      if (!tweet.matches("\\p{ASCII}+")) {
+         throw new IllegalArgumentException("Tweet is expected to be letters and numbers only, tweet was: " + tweet);
+      }
+
       UserTweetPair utp = new UserTweetPair(userName, tweet);
 
       HashSet<String> usersWhoFollow = followedByMapSet.get(userName);

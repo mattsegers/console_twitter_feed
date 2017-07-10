@@ -19,6 +19,8 @@ import org.testng.annotations.Test;
 
 public class UserFileToHashMapReaderTest {
 
+   final String endOfText = "\u0003";
+
    File uTestFile;
    File tTestFile;
 
@@ -188,32 +190,23 @@ public class UserFileToHashMapReaderTest {
                         + "Martin:\n" + "Ward:\n"
                         + "\t@Alan: If you have a procedure with 10 parameters, you probably missed some.\n"
                         + "\t@Ward: There are only two hard things in Computer Science: cache invalidation, naming things and off-by-1 errors.\n"
-                        + "\t@Alan: Random numbers should not be generated with a method chosen at random." },
-            { "Ward follows Alan\n" + "Alan follows Martin\n" + "Ward follows Martin, Alan",
-                  "Alan> If you have a procedure with ###### parameters, you probably missed some.\n\n\n\n\n\n\n"
-                        + "Ward> There are only two hard things in Computer Science: cache invalidation, naming things and off-by-1 errors.\n"
-                        + "Alan> 4l@n has decided that he will tweet a tweet that is very, very long indeed. And this tweet, too long to be displayed and, really, just simply too long, will probably go unnoticed.\n",
-                  "Alan:\n" + "\t@Alan: If you have a procedure with ###### parameters, you probably missed some.\n"
-                        + "\t@Alan: 4l@n has decided that he will tweet a tweet that is very, very long indeed. And this tweet, too long to be displayed and, really, just simpl\n"
-                        + "Martin:\n" + "Ward:\n"
-                        + "\t@Alan: If you have a procedure with ###### parameters, you probably missed some.\n"
-                        + "\t@Ward: There are only two hard things in Computer Science: cache invalidation, naming things and off-by-1 errors.\n"
-                        + "\t@Alan: 4l@n has decided that he will tweet a tweet that is very, very long indeed. And this tweet, too long to be displayed and, really, just simpl" } };
+                        + "\t@Alan: Random numbers should not be generated with a method chosen at random." } };
    }
 
    @DataProvider(name = "badTweetsProvider")
    public Object[][] badTweetsProvider() {
       return new Object[][] { { "Ward follows Alan\n" + "Alan follows Martin\n" + "Ward follows Martin, Alan",
             "Alan> If you have a procedure with 10 parameters, you probably missed some.\n"
-                  + "Ward> There are only two hard things in Computer Science: cache invalidation, naming things and off-by-1 errors.\n"
-                  + "Alan>",
+                  + "Ward> There are only two hard things in Computer Science: cache invalidation, naming things and off-by-1 errors."
+                  + endOfText + "\n" + "Alan>",
             "Alan:\n" + "\t@Alan: If you have a procedure with 10 parameters, you probably missed some.\n"
                   + "\t@Alan: Random numbers should not be generated with a method chosen at random.\n" + "Martin:\n"
                   + "Ward:\n" + "\t@Alan: If you have a procedure with 10 parameters, you probably missed some.\n"
                   + "\t@Ward: There are only two hard things in Computer Science: cache invalidation, naming things and off-by-1 errors.\n"
                   + "\t@Alan: Random numbers should not be generated with a method chosen at random." },
             { "Ward follows Alan\n" + "Alan follows Martin\n" + "Ward follows Martin, Alan",
-                  "Alan> If you have a procedure with 10 \nparameters, you probably missed some.\n\n\n\n\n\n\n"
+                  "Alan> If you have a procedure with 10 \nparameters, you probably missed some." + endOfText
+                        + "\n\n\n\n\n\n\n"
                         + "Ward> There are only two hard things in Computer Science: cache invalidation, naming things and off-by-1 errors.\n"
                         + "Alan> Random numbers should not be generated with a method chosen at random.\n",
                   "Alan:\n" + "\t@Alan: If you have a procedure with 10 parameters, you probably missed some.\n"
