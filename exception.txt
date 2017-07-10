@@ -1,0 +1,6 @@
+java.io.FileNotFoundException: user_example,txt (No such file or directory)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:146)
+	at io.ag.assignment.filereaders.UserFileToHashMapReader.readUserFileToMap(UserFileToHashMapReader.java:49)
+	at io.ag.assignment.filereaders.UserFileToHashMapReader.doProcessing(UserFileToHashMapReader.java:45)
+	at io.ag.assignment.TwitterFeed.main(TwitterFeed.java:24)

@@ -44,7 +44,7 @@
               </descriptorRefs>
               <archive>
                 <manifest>
-                  <mainClass>io.ag.assignment.TwitterFeed</mainClass>
+                  <mainClass>io.console.twitterfeed.TwitterFeed</mainClass>
                 </manifest>
               </archive>
             </configuration>

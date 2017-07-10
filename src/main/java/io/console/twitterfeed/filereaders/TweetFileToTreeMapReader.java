@@ -1,6 +1,6 @@
-package io.ag.assignment.filereaders;
+package io.console.twitterfeed.filereaders;
 
-import io.ag.assignment.framework.Configuration;
+import io.console.twitterfeed.framework.Configuration;
 
 import java.io.BufferedReader;
 import java.io.File;

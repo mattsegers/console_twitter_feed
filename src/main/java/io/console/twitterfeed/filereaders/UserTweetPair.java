@@ -1,4 +1,4 @@
-package io.ag.assignment.filereaders;
+package io.console.twitterfeed.filereaders;
 
 public class UserTweetPair {
 

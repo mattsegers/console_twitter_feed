@@ -1,7 +1,7 @@
-package io.ag.assignment;
+package io.console.twitterfeed;
 
-import io.ag.assignment.filereaders.TweetFileToTreeMapReader;
-import io.ag.assignment.filereaders.UserFileToHashMapReader;
+import io.console.twitterfeed.filereaders.TweetFileToTreeMapReader;
+import io.console.twitterfeed.filereaders.UserFileToHashMapReader;
 
 import java.io.File;
 import java.io.FileWriter;
